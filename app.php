@@ -33,7 +33,8 @@ $cities = $cityParser->parseCities($citiesData);
 
 foreach ($cities as $city) {
     $forecastData = $weatherGateway->getForecast($city->getLatitude(), $city->getLongitude());
-    echo sprintf("Processed city %s | %s - %s \n",
+    echo sprintf(
+        "Processed city %s | %s - %s \n",
         $city->getName(),
         $forecastData['forecast']['forecastday'][0]['day']['condition']['text'],
         $forecastData['forecast']['forecastday'][1]['day']['condition']['text']
