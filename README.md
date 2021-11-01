@@ -11,7 +11,7 @@ This project can be run with Docker, following these instructions.
     ```
 2. Bring up the container
     ```
-    docker run -itd --rm --name tui-app tui-app
+    docker run -itd -v `pwd`:/var/www/tui-app --rm --name tui-app tui-app
     ```  
 3. Check that container is running
     ```
