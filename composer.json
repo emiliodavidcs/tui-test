@@ -13,11 +13,19 @@
             "Emilioclemente\\TuiApp\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Emilioclemente\\TuiApp\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Emilio D. Clemente Silmi",
             "email": "emiliodavidcs@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
 }
