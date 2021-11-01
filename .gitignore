@@ -1,3 +1,8 @@
 # IDE local configuration
 .idea
+
+# Composer files
 /vendor/
+
+# PHP CS Fixer
+.php-cs-fixer.cache
