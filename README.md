@@ -56,3 +56,133 @@ The project contains a static code analyser as well, in order to execute it and 
 ```
 docker exec -it tui-app vendor/bin/phpstan analyse -l 6 src tests
 ```
+
+# TUI technical test solution (PART II)
+
+## API Design
+
+### Endpoints to set the forecast for a specific city
+
+- Create a forecast
+    - Endpoint
+        ```
+        POST /api/v3/forecasts
+        ```
+
+    - Payload
+        ```
+        {
+            "city": {
+                "id": 1,
+                ...
+            },
+            "date": "2021-11-01",
+            "condition": "Sunny",
+            ...
+        }
+        ```
+        
+    - Possible responses
+        - HTTP 201
+            ```
+            {
+                "id": 1,
+                "city": {
+                    "id": 1,
+                    ...
+                },
+                "date": "2021-11-01",
+                "condition": "Sunny",
+                ...
+            }
+            ```
+        - HTTP 400
+            ```
+            {
+                "message": "The city already has a forecast for that date"
+            }
+            ```
+            ```
+            {
+                "message": "The property 'city/date/condition' is required"
+            }
+            ```
+            ```
+            {
+                "message": "City does not exist"
+            }
+            ```
+        
+- Update a forecast
+    - Endpoint
+        ```
+        PATCH /api/v3/forecasts/{id}
+        ```
+    
+    - Payload
+        ```
+        {
+            "condition": "Cloudy"
+        }
+        ```
+        
+    - Possible responses
+        - HTTP 200
+            ```
+            {
+                "id": 1,
+                "city": {
+                    "id": 1,
+                    ...
+                },
+                "date": "2021-11-01",
+                "condition": "Cloudy",
+                ...
+            }
+            ```
+        - HTTP 400
+            ```
+            {
+                "message": "The property 'condition' is required"
+            }
+            ```
+        - HTTP 404
+            ```
+            {
+                "message": "Forecast does not exist"
+            }
+            ```
+        
+    
+    
+ 
+ ### Endpoint to read the forecast for a specific city
+ 
+- Endpoint
+    ```
+    GET /api/v3/forecasts
+    ```
+- Query parameters
+    - **city**: unique identifier of the city of the forecast to retrieve
+    - **date**: date of the forecast to retrieve
+    
+- Example
+    ```
+    GET /api/v3/forecasts?city=1&date=2021-11-01
+    ```
+
+- Response
+    
+    HTTP 200
+    ```
+    [
+        {
+            "id": 1,
+            "city": {
+                "id": 1
+            },
+            "date": 2021-11-01,
+            "condition": "Cloudy"
+        }
+    ]
+    ```
