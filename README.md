@@ -34,3 +34,9 @@ To run the application and get the forecast messages in screen, run the followin
 ```
 docker exec -it tui-app php app.php
 ```
+
+## Tests
+To run PHPUnit tests, execute the following command
+```
+docker exec -it tui-app vendor/bin/phpunit tests
+```
