@@ -8,7 +8,10 @@ use PHPUnit\Framework\TestCase;
 
 class CityParserTest extends TestCase
 {
-    private static function getMockCityData()
+    /**
+     * @return array<string, mixed>
+     */
+    private static function getMockCityData(): array
     {
         return [
             'name' => 'Mock City',
@@ -17,7 +20,7 @@ class CityParserTest extends TestCase
         ];
     }
 
-    public function testParseCity()
+    public function testParseCity(): void
     {
         // arrange
         $mockCityData = self::getMockCityData();
@@ -28,13 +31,13 @@ class CityParserTest extends TestCase
         $res = $parser->parseCity($mockCityData);
 
         // assert
-        self::isInstanceOf(CityDto::class, $res);
+        self::assertInstanceOf(CityDto::class, $res);
         self::assertEquals($mockCityData['name'], $res->getName());
         self::assertEquals($mockCityData['latitude'], $res->getLatitude());
         self::assertEquals($mockCityData['longitude'], $res->getLongitude());
     }
 
-    public function testParseCities()
+    public function testParseCities(): void
     {
         // arrange
         $mockCitiesData = [
@@ -49,6 +52,7 @@ class CityParserTest extends TestCase
         // assert
         self::assertIsArray($res);
         self::assertCount(1, $res);
+        self::assertInstanceOf(CityDto::class, $res[0]);
         self::assertEquals($mockCitiesData[0]['name'], $res[0]->getName());
         self::assertEquals($mockCitiesData[0]['latitude'], $res[0]->getLatitude());
         self::assertEquals($mockCitiesData[0]['longitude'], $res[0]->getLongitude());

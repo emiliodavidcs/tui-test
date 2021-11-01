@@ -6,7 +6,11 @@ use Emilioclemente\TuiApp\DTO\CityDto;
 
 class CityParser
 {
-    public function parseCity(array $cityData)
+    /**
+     * @param array<string, mixed> $cityData
+     * @return CityDto
+     */
+    public function parseCity(array $cityData): CityDto
     {
         return new CityDto(
             $cityData['name'],
@@ -15,7 +19,11 @@ class CityParser
         );
     }
 
-    public function parseCities(array $citiesData)
+    /**
+     * @param array<int, array<string, mixed>>  $citiesData
+     * @return array<CityDto>
+     */
+    public function parseCities(array $citiesData): array
     {
         $cities = [];
 

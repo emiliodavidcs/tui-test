@@ -9,7 +9,7 @@ use DateTime;
 
 class WeatherAPIGatewayTest extends TestCase
 {
-    public function testGetForecast()
+    public function testGetForecast(): void
     {
         // arrange
         $currentDate = new DateTime();
@@ -17,14 +17,16 @@ class WeatherAPIGatewayTest extends TestCase
         $mockForecast = [
             'forecast' => [
                 'forecastday' => [
-                    $currentDate->format('Y-m-d') => [
+                    0 => [
+                        'date' => $currentDate->format('Y-m-d'),
                         'day' => [
                             'condition' => [
                                 'text' => 'Sunny'
                             ]
                         ]
                     ],
-                    $currentDate->modify('+1d')->format('Y-m-d') => [
+                    1 => [
+                        'date' => $currentDate->modify('+1d')->format('Y-m-d'),
                         'day' => [
                             'condition' => [
                                 'text' => 'Cloudy'

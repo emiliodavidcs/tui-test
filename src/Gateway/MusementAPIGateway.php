@@ -6,14 +6,17 @@ use Emilioclemente\TuiApp\Constants\MusementAPIConstants;
 
 class MusementAPIGateway
 {
-    private $client;
+    private HttpClient $client;
 
     public function __construct(HttpClient $client)
     {
         $this->client = $client;
     }
 
-    public function getCities()
+    /**
+     * @return array<integer, mixed>
+     */
+    public function getCities(): array
     {
         return $this->client->get(MusementAPIConstants::BASE_URL.MusementAPIConstants::ENDPOINT_CITIES);
     }

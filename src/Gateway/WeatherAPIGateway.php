@@ -6,14 +6,17 @@ use Emilioclemente\TuiApp\Constants\WeatherAPIConstants;
 
 class WeatherAPIGateway
 {
-    private $client;
+    private HttpClient $client;
 
     public function __construct(HttpClient $client)
     {
         $this->client = $client;
     }
 
-    public function getForecast(float $latitude, float $longitude, int $days = 2)
+    /**
+     * @return array<string, mixed>
+     */
+    public function getForecast(float $latitude, float $longitude, int $days = 2): array
     {
         return $this->client->get(
             WeatherAPIConstants::BASE_URL.WeatherAPIConstants::ENDPOINT_FORECAST,

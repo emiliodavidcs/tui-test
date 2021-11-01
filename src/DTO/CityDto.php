@@ -4,11 +4,11 @@ namespace Emilioclemente\TuiApp\DTO;
 
 class CityDto
 {
-    private $name;
+    private string $name;
 
-    private $latitude;
+    private float $latitude;
 
-    private $longitude;
+    private float $longitude;
 
     public function __construct(string $name, float $latitude, float $longitude)
     {
@@ -22,12 +22,12 @@ class CityDto
         return $this->name;
     }
 
-    public function getLatitude(): string
+    public function getLatitude(): float
     {
         return $this->latitude;
     }
 
-    public function getLongitude(): string
+    public function getLongitude(): float
     {
         return $this->longitude;
     }

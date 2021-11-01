@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class MusementAPIGatewayTest extends TestCase
 {
-    public function testGetCities()
+    public function testGetCities(): void
     {
         // arrange
         $mockCity = ['name' => 'Mock City'];
