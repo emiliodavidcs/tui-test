@@ -9,7 +9,8 @@ use DateTime;
 
 class WeatherAPIGatewayTest extends TestCase
 {
-    public function testGetForecast(){
+    public function testGetForecast()
+    {
         // arrange
         $currentDate = new DateTime();
 

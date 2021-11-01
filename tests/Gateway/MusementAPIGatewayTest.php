@@ -8,7 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 class MusementAPIGatewayTest extends TestCase
 {
-    public function testGetCities(){
+    public function testGetCities()
+    {
         // arrange
         $mockCity = ['name' => 'Mock City'];
         $httpClient = self::createMock(HttpClient::class);

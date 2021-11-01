@@ -4,6 +4,6 @@ namespace Emilioclemente\TuiApp\Constants;
 
 class WeatherAPIConstants
 {
-    const BASE_URL = 'http://api.weatherapi.com';
-    const ENDPOINT_FORECAST = '/v1/forecast.json';
+    public const BASE_URL = 'http://api.weatherapi.com';
+    public const ENDPOINT_FORECAST = '/v1/forecast.json';
 }

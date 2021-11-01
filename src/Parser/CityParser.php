@@ -6,7 +6,8 @@ use Emilioclemente\TuiApp\DTO\CityDto;
 
 class CityParser
 {
-    public function parseCity(array $cityData) {
+    public function parseCity(array $cityData)
+    {
         return new CityDto(
             $cityData['name'],
             $cityData['latitude'],
@@ -14,7 +15,8 @@ class CityParser
         );
     }
 
-    public function parseCities(array $citiesData) {
+    public function parseCities(array $citiesData)
+    {
         $cities = [];
 
         foreach ($citiesData as $cityData) {
