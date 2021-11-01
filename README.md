@@ -9,9 +9,9 @@ This project can be run with Docker, following these instructions.
     ```
     docker build -t tui-app .
     ```
-2. Bring up the container
+2. Bring up the container (replace <your_valid_key> with a valid Weather API key)
     ```
-    docker run -itd -v `pwd`:/var/www/tui-app --rm --name tui-app tui-app
+    docker run -itd -v `pwd`:/var/www/tui-app -e WEATHER_API_KEY=<your_valid_key> --rm --name tui-app tui-app
     ```  
 3. Check that container is running
     ```
