@@ -28,3 +28,9 @@ To stop the container
 ```
 docker stop tui-app
 ```
+
+## Running the application
+To run the application and get the forecast messages in screen, run the following command
+```
+docker exec -it tui-app php app.php
+```
