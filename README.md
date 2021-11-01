@@ -40,3 +40,19 @@ To run PHPUnit tests, execute the following command
 ```
 docker exec -it tui-app vendor/bin/phpunit tests
 ```
+
+## Standards
+
+### PSR
+The code follows PSR standards, in order to comply with them, a tool called PHP CS Fixer is used. [Click here](https://github.com/FriendsOfPHP/PHP-CS-Fixer) for more information.
+
+To execute this tool and fix anything that does not comply with the standard, run the following command
+```
+docker exec -it tui-app vendor/bin/php-cs-fixer .
+```
+
+### Static code analyser
+The project contains a static code analyser as well, in order to execute it and see any possible errors run the following command
+```
+docker exec -it tui-app vendor/bin/phpstan analyse -l 6 src tests
+```
