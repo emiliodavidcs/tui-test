@@ -30,6 +30,10 @@ docker stop tui-app
 ```
 
 ## Running the application
+Make sure dependencies are insalled, if they are not, install them with the following command
+```
+docker exec -it tui-app composer install
+```
 To run the application and get the forecast messages in screen, run the following command
 ```
 docker exec -it tui-app php app.php
